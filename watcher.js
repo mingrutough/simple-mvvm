@@ -4,11 +4,16 @@ class Watcher {
     this.vm = vm;
     this.expr = expr;
     this.cb = cb;
-    this.oldValue = this.getVal(vm, expr);
+    this.oldValue = this.get();
+    
+  }
+  get() { 
+    Dep.target = this;
+    const value = this.getVal(this.vm, this.expr);
     Dep.target = null;
+    return value;
   }
   getVal(vm, expr) { // 获取data选项中的数据
-    Dep.target = this;
     let varArr = expr.split('.'); // 为了处理a.b.c的情况
     return varArr.reduce((pre, next) => { 
       return pre[next]

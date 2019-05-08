@@ -101,7 +101,7 @@ CompileUtils = {
     let varArr = expr.split('.'); // 为了处理a.b.c的情况
     return varArr.reduce((pre, next, index) => { 
       if (index === varArr.length - 1) { 
-        pre[next] = newValue;
+        return pre[next] = newValue;
       }
       return pre[next]
     }, vm.$data);

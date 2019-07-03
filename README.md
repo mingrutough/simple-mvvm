@@ -1,2 +1,2 @@
 # simple-mvvm
-参考vue的实现自己手动编写一个基于mvvm模式的框架demo
+模仿vue的实现方式，简单实现一个mvvm框架。
